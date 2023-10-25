@@ -10,6 +10,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <script src="https://kit.fontawesome.com/f5eda7a296.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/app.css" />
     </head>
     <body class="bg-grey">
@@ -38,9 +39,10 @@
 
                 <div class="tasks-container bg-white">
                     <ul v-if="tasks.length > 0">
-                        <li class="task p-2" @click="log(newTask)" :class="(task.done) ? 'done' : '' " v-for="(task, index) in tasks" :key="index" >
+                        <li class="task p-2 d-flex justify-content-between" @click="log(newTask)" :class="(task.done) ? 'done' : '' " v-for="(task, index) in tasks" :key="index" >
                             {{ task.text }}
-                            <i class="fas fa-times"></i>
+                            
+                            <span><i class="fa-solid fa-square-xmark fs-3" @click="removeTask(index)"></i></span>
                         </li>
                     </ul>
                 </div>

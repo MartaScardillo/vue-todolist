@@ -24,7 +24,7 @@ createApp({
 
     methods: {
         addTask() {
-            if (this.newTask.length > 0) {
+            if (this.newTask.length >= 5) {
                 this.tasks.push(
                     { 
                         text: this.newTask,
@@ -34,6 +34,10 @@ createApp({
             } else {
                 this.newTask = ''
             }
+        },
+
+        removeTask(index) {
+            this.tasks.splice(index, 1)
         },
 
         log(text) {
